@@ -182,7 +182,7 @@ namespace Marketplace.ARMTemplate.Common.Models
         }
         public JToken Evaluate(Expression expr)
         {
-            return _evaluator.Evaluate(new Expression(expr));
+            return _evaluator.Evaluate(expr);
         }
     }
 }

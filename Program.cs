@@ -59,7 +59,6 @@ namespace ATP
             var p = JObject.Parse(par);
 
             var dep=new Deployment("subscription", "resourceGroup", "deploymentName", t, p);
-            t.Resources[1];
         }
     }
 }

@@ -1,8 +1,0 @@
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\bin\Debug\ATP.exe.config
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\obj\Debug\ATP.csprojResolveAssemblyReference.cache
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\bin\Debug\ATP.exe
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\bin\Debug\ATP.pdb
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\bin\Debug\Newtonsoft.Json.dll
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\bin\Debug\Newtonsoft.Json.xml
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\obj\Debug\ATP.exe
-d:\documents\documents\visual studio 2015\Projects\ATP\ATP\obj\Debug\ATP.pdb
