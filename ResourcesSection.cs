@@ -25,6 +25,8 @@ namespace Marketplace.ARMTemplate.Common.Models
     {
         public ResourcesSection(JToken node, ArmTemplate tmpl) : base(node, tmpl)
         {
+            Resources = (from c in Model
+                               select new Resource(c, Root)).ToArray();
             VirtualMachines = (from c in Model
                                where c["type"].ToString() == "Microsoft.Compute/virtualMachines"
                                select new VirtualMachine(c, Root)).ToList();
@@ -35,6 +37,7 @@ namespace Marketplace.ARMTemplate.Common.Models
 
         public IList<VirtualMachine> VirtualMachines { get; }
         public IList<VirtualNet> VirtualNets { get; }
+        public Resource[] Resources { get; }
     }
 
     public class OutputsSection : ObjectModel

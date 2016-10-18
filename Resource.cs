@@ -28,18 +28,40 @@ namespace Marketplace.ARMTemplate.Common.Models
 
     public class Resource : ObjectModel
     {
-        protected Resource(JToken node, ArmTemplate tmpl) : base(node, tmpl)
+        public Resource(JToken node, ArmTemplate tmpl) : base(node, tmpl)
         {
-            DependsOn = (from c in Model["dependsOn"]
-                select new Expression(c.ToString())).ToList();
+            if (Model["dependsOn"] == null)
+            {
+                DependsOn = new List<Expression>();
+            }
+            else
+            {
+                DependsOn = new List<Expression>();
+                foreach (var c in Model["dependsOn"])
+                {
+                    DependsOn.Add(new Expression(c.ToString()));                    
+                }
+//                DependsOn = (from c in Model["dependsOn"]
+//                             select new Expression(c.ToString())).ToList();
+            }
         }
+
+        public string Type => Model["type"].ToString();
 
         public bool IsCluster => Model["copy"] != null;
 
         public string CopyName => Model["copy"]["name"].ToString();
         public Expression Count => new Expression(IsCluster ? Model["copy"]["count"].ToString() : "1");
 
-        public IList<Expression> DependsOn{get;}
+        public IList<Expression> DependsOn { get; }
+
+        public void SetDependency(int index, string value)
+        {
+            var dep=(JArray)(Model["dependsOn"]);
+            dep[index]=value;
+        }
+
+        public Expression Name => new Expression(Model["name"].ToString());
     }
 
     public class VirtualMachine : Resource
